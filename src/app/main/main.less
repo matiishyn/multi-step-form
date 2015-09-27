@@ -1,0 +1,33 @@
+// common styles for forms for all steps
+.steps-form {
+  form {
+    .help-block {
+      position: absolute;
+      z-index: 1;
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin: 0;
+    }
+
+    // Automatically put red asterix for required filed
+    .form-group.required {
+      .control-label:after {
+        content: "*";
+        color: red;
+      }
+    }
+
+    // styles for invalid input
+    .has-error {
+      .input-group-btn button {
+        border-color: @invalid-color;
+      }
+    }
+  }
+
+}

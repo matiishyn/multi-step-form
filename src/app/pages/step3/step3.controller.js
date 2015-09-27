@@ -3,13 +3,11 @@
 
     angular
         .module('multiStepForm')
-        .controller('MainController', MainController);
+        .controller('Step3Controller', Step3Controller);
 
     /** @ngInject */
-    function MainController(UserService) {
+    function Step3Controller(UserService) {
         var vm = this;
-
-        // storing data from from in service
         vm.UserData = UserService.data;
     }
 })();

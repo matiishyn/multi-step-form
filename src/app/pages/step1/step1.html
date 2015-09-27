@@ -1,0 +1,51 @@
+<h2 class="text-center">Authorization</h2>
+
+<form name="authForm" class="form-horizontal col-md-offset-2 col-md-8" novalidate>
+    <div class="form-group required has-feedback" ng-class="{'has-error': authForm.email.$invalid}">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+
+        <div class="col-sm-9">
+            <input required type="email" class="form-control" id="email" name="email" ng-model="step1.UserData.email"
+                   placeholder="Email">
+                <span ng-if="authForm.email.$invalid"
+                      class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+                <span ng-if="authForm.email.$invalid" class="help-block">
+                    Wrong email
+                </span>
+        </div>
+    </div>
+
+    <div class="form-group required has-feedback" ng-class="{'has-error': authForm.password.$invalid}">
+        <label for="password" class="col-sm-3 control-label">Password</label>
+
+        <div class="col-sm-9">
+            <input required type="password" class="form-control" id="password" name="password" ng-model="step1.UserData.password"
+                   placeholder="Password">
+                <span ng-if="authForm.password.$invalid"
+                      class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+                <span ng-if="authForm.password.$invalid" class="help-block">
+                    Password is required
+                </span>
+        </div>
+    </div>
+
+    <div class="form-group required has-feedback" ng-class="{'has-error': authForm.repeatPassword.$invalid}">
+        <label for="repeatPassword" class="col-sm-3 control-label">Repeat password</label>
+
+        <div class="col-sm-9">
+            <input required type="password" class="form-control" id="repeatPassword" name="repeatPassword"
+                   ng-model="step1.UserData.repeatPassword"
+                   ng-pattern="{{authForm.password.$modelValue}}"
+                   placeholder="Repeat password">
+                <span ng-if="authForm.repeatPassword.$invalid"
+                      class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+                <span ng-if="authForm.repeatPassword.$invalid" class="help-block">
+                    Repeat password
+                </span>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="btn pull-right" ng-disabled="authForm.$invalid" ui-sref="home.step2">Next</button>
+    </div>
+</form>

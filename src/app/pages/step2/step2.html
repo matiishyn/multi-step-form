@@ -1,0 +1,73 @@
+<h2 class="text-center">Personal data</h2>
+
+<form name="authForm" class="form-horizontal col-md-offset-2 col-md-8" novalidate>
+    <div class="form-group required has-feedback" ng-class="{'has-error': authForm.name.$invalid}">
+        <label for="name" class="col-sm-3 control-label">Name</label>
+
+        <div class="col-sm-9">
+            <input required type="text" class="form-control" id="name" name="name" ng-model="step2.UserData.name"
+                   pattern="[\sa-zA-Z]+"
+                   placeholder="Name">
+                <span ng-if="authForm.name.$invalid"
+                      class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+                <span ng-if="authForm.name.$invalid" class="help-block">
+                    Name is required and can contain only latin letters
+                </span>
+        </div>
+    </div>
+
+    <div class="form-group required has-feedback" ng-class="{'has-error': authForm.birthday.$invalid}">
+        <label for="birthday" class="col-sm-3 control-label">Birthday</label>
+
+        <div class="col-sm-9">
+
+            <p class="input-group">
+                <input type="text"
+                       class="form-control"
+                       datepicker-popup="{{step2.DateFormat}}"
+                       ng-model="step2.UserData.birthday"
+                       is-open="step2.datepickerOpened"
+                       required
+                       name="birthday"
+                       id="birthday"
+                       max-date="step2.getToday()"
+                       placeholder="20-Sep-1990"
+                       close-text="Close"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="step2.openDatepicker()">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </button>
+                </span>
+            </p>
+            <span ng-if="authForm.birthday.$invalid" class="help-block">
+                Birthday is required and should be valid date
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{'has-error': authForm.additionalInfo.$invalid}">
+        <label for="additionalInfo" class="col-sm-3 control-label">Additional Info</label>
+        <div class="col-sm-9">
+            <textarea type="password" class="form-control" id="additionalInfo"
+                      name="additionalInfo"
+                      ng-model="step2.UserData.additionalInfo"
+                      rows="3"
+                      ng-maxlength="step2.TextareaMaxlength"
+                      placeholder="Repeat password">
+            </textarea>
+            <span ng-if="authForm.additionalInfo.$invalid"
+                  class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
+            <span ng-if="authForm.additionalInfo.$invalid" class="help-block">
+                Exceeded max length
+            </span>
+            <span ng-if="authForm.additionalInfo.$valid" class="help-block">
+                {{step2.getSymbolsLeft(authForm.additionalInfo)}} symbols left
+            </span>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="btn pull-left" ui-sref="home.step1">Back</button>
+        <button class="btn pull-right" ng-disabled="authForm.$invalid" ui-sref="home.step3">Next</button>
+    </div>
+</form>
