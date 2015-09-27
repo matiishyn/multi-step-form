@@ -12,7 +12,6 @@
         vm.UserData = UserService.data;
 
         vm.goToStep2 = function() {
-            PermissionsService['home.step2'] = true;
             $state.go('home.step2');
         };
     }

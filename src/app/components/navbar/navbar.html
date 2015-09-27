@@ -6,12 +6,12 @@
             </a>
         </li>
         <li>
-            <a ui-sref="home.step2">
+            <a ng-class="{disabledItem: !vm.PermissionsService['home.step2']}" ui-sref="home.step2">
                 <span class="step-counter">2</span><span class="step-title">Personal data</span>
             </a>
         </li>
         <li>
-            <a ui-sref="home.step3">
+            <a ng-class="{disabledItem: !vm.PermissionsService['home.step3']}" ui-sref="home.step3">
                 <span class="step-counter">3</span><span class="step-title">Confirmation</span>
             </a>
         </li>

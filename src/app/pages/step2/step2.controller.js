@@ -33,7 +33,6 @@
         };
 
         vm.goToStep3 = function() {
-            PermissionsService['home.step3'] = true;
             $state.go('home.step3');
         };
     }

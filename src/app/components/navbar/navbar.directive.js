@@ -18,12 +18,13 @@
         return directive;
 
         /** @ngInject */
-        function NavbarController($scope, $element, $rootScope, $state) {
+        function NavbarController($scope, $element, $rootScope, $state, PermissionsService) {
             var vm = this;
+            vm.PermissionsService = PermissionsService;
 
             activateMenuItem($state.current.name);
 
-            var onStateChange = $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            $rootScope.$on('$stateChangeSuccess', function (event, toState) {
                 activateMenuItem(toState.name);
             });
 
@@ -31,11 +32,9 @@
                 // find menu item based on current state
                 var activeEl = $element.find('[ui-sref="' + menuState + '"]');
                 // activate current
-                activeEl.removeClass('disabledItem').addClass('activeItem');
+                activeEl.addClass('activeItem');
                 // deactivate all siblings
-                activeEl.parent('li').siblings().find('a').removeClass('activeItem disabledItem');
-                // disable al next siblings
-                activeEl.parent('li').nextAll().find('a').addClass('disabledItem');
+                activeEl.parent('li').siblings().find('a').removeClass('activeItem');
             }
 
         }
