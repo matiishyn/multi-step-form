@@ -67,12 +67,12 @@
     </div>
 
     <div class="button-group">
-        <button class="btn btn-default pull-left" ui-sref="home.step1">
+        <button class="btn btn-info pull-left" ui-sref="home.step1">
             <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             Back
         </button>
 
-        <button class="btn btn-default pull-right" ng-disabled="authForm.$invalid" ui-sref="home.step3">
+        <button class="btn btn-info pull-right" ng-disabled="authForm.$invalid" ng-click="step2.goToStep3()">
             Next
             <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         </button>

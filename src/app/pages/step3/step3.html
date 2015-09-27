@@ -1,6 +1,6 @@
 <h2 class="text-center">Confirmation</h2>
 
-<div class="" >
+<div class="">
     <div class="button-group">
 
     </div>
@@ -12,17 +12,19 @@
         <dd>{{step3.UserData.name}}</dd>
         <dt>Birthday</dt>
         <dd>{{step3.UserData.birthday | date}}</dd>
-        <dt>Additional Info</dt>
+        <dt ng-if="step3.UserData.additionalInfo">Additional Info</dt>
         <dd>{{step3.UserData.additionalInfo}}</dd>
     </dl>
-
     <div class="text-center">
-        <button class="btn btn-default pull-left" ui-sref="home.step2">
-            <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            Back
-        </button>
         <button class="btn btn-lg btn-success">
             Complete registration
+        </button>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-info pull-left" ui-sref="home.step2">
+            <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Back
         </button>
         <div class="clearfix"></div>
     </div>

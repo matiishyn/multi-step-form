@@ -6,7 +6,7 @@
         .controller('Step2Controller', Step2Controller);
 
     /** @ngInject */
-    function Step2Controller(UserService, TextareaMaxlength, DateFormat) {
+    function Step2Controller(UserService, TextareaMaxlength, DateFormat, PermissionsService, $state) {
         var vm = this;
         vm.UserData = UserService.data;
         vm.TextareaMaxlength = TextareaMaxlength;
@@ -30,6 +30,11 @@
          */
         vm.getSymbolsLeft = function (el) {
             return el && el.$modelValue ? (TextareaMaxlength - el.$modelValue.length) : TextareaMaxlength;
+        };
+
+        vm.goToStep3 = function() {
+            PermissionsService['home.step3'] = true;
+            $state.go('home.step3');
         };
     }
 })();
