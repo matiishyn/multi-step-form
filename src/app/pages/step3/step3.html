@@ -1,4 +1,29 @@
-<div class="container">
+<h2 class="text-center">Confirmation</h2>
 
-    <h1>step3</h1>
+<div class="" >
+    <div class="button-group">
+
+    </div>
+
+    <dl class="table-like">
+        <dt>Email</dt>
+        <dd>{{step3.UserData.email}}</dd>
+        <dt>Name</dt>
+        <dd>{{step3.UserData.name}}</dd>
+        <dt>Birthday</dt>
+        <dd>{{step3.UserData.birthday | date}}</dd>
+        <dt>Additional Info</dt>
+        <dd>{{step3.UserData.additionalInfo}}</dd>
+    </dl>
+
+    <div class="text-center">
+        <button class="btn btn-default pull-left" ui-sref="home.step2">
+            <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Back
+        </button>
+        <button class="btn btn-lg btn-success">
+            Complete registration
+        </button>
+        <div class="clearfix"></div>
+    </div>
 </div>

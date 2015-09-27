@@ -1,6 +1,6 @@
 <h2 class="text-center">Personal data</h2>
 
-<form name="authForm" class="form-horizontal col-md-offset-2 col-md-8" novalidate>
+<form name="authForm" class="form-horizontal" novalidate>
     <div class="form-group required has-feedback" ng-class="{'has-error': authForm.name.$invalid}">
         <label for="name" class="col-sm-3 control-label">Name</label>
 
@@ -53,7 +53,7 @@
                       ng-model="step2.UserData.additionalInfo"
                       rows="3"
                       ng-maxlength="step2.TextareaMaxlength"
-                      placeholder="Repeat password">
+                      placeholder="Additional Info">
             </textarea>
             <span ng-if="authForm.additionalInfo.$invalid"
                   class="glyphicon glyphicon-exclamation-sign form-control-feedback" aria-hidden="true"></span>
@@ -67,7 +67,16 @@
     </div>
 
     <div class="button-group">
-        <button class="btn pull-left" ui-sref="home.step1">Back</button>
-        <button class="btn pull-right" ng-disabled="authForm.$invalid" ui-sref="home.step3">Next</button>
+        <button class="btn btn-default pull-left" ui-sref="home.step1">
+            <span class="glyphicon glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Back
+        </button>
+
+        <button class="btn btn-default pull-right" ng-disabled="authForm.$invalid" ui-sref="home.step3">
+            Next
+            <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </button>
+
+        <div class="clearfix"></div>
     </div>
 </form>
